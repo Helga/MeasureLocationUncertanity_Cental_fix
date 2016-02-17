@@ -27,7 +27,7 @@ for blk_ind =1:nBlocks
     %RMSE for x and y
     err_dist(:,blk_ind) = sqrt(sum((relative_dotXy - relative_respXY).^2, 2));
     p = s.expmnt.data{blk_ind}.stim.fixPhi;
-    phi(blk_ind) = 360-round(180* p/3.14);%flip the y axis
+    phi(blk_ind) = to_testing_lcation_coordinates(p);%flip the y axis
 end
 %rearange the err matrix to represent Phi in acsending order
 [sorted_phi, I] = sort(phi);
